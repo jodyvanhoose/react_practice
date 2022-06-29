@@ -1,0 +1,377 @@
+@import './variables';
+
+
+// resets
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*{
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: $gradientBg;
+  background-image: url(../public/img/green_field.jpg);
+  // background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../public/img/green_field.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+
+.container1{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a{
+  text-decoration: none;
+  color: $dark;
+  font-weight: 600;
+}
+
+// nav bar section
+header{
+  margin-top: 2rem;
+  align-items: center;
+  
+  
+
+  h1{
+    border-bottom: 1px solid $primaryColor;
+    letter-spacing: 2px;
+  }
+
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    ul{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      li{
+        list-style: none;
+        padding: 1.5em 0.5em 1em;
+      }
+    }
+  }
+}
+
+
+
+// main / pollen forecast display section
+main{
+  height: fit-content;
+  min-height: 600px;
+  padding: 1em;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, .6);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // align-items: center;
+  text-align: center;
+
+  // location search section
+.search-bar{
+  padding-top: 2em;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  
+
+  input {
+    margin-bottom: 0;
+    width: 50%;
+    border-radius: 25px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: rgba(0, 0, 0, .6);
+    border: none;
+    outline: none;
+    color: $primaryColor;
+    &::placeholder{
+      color: inherit;
+    }
+  }
+  
+  button{
+    border-radius: 2px 25px 25px 2px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: $primaryColor;
+  }
+
+  #clear-btn{
+    display: none;
+    padding: .6em;
+    font-weight: 200;
+    color: $primaryColor;
+  }
+
+  #search-btn{
+    display: none;
+  }
+
+  
+  }
+
+  .location-text{
+    font-size: 2em;
+    color: $primaryColor;
+  }
+
+}
+
+
+
+// pollen display section
+  .display-wrap{
+    display: flex;
+    justify-content: space-evenly;
+    
+
+    .pollen-display{
+      border-radius: 25px;
+      // background-color: #e4e4e4;
+      width: 100%;
+      min-height: 450px;
+      margin: 0 1em 1em 1em;
+      padding-top: 2em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      // background-color: rgba(221, 211, 211, 0.6);
+      background-color: rgba(0, 0, 0, 0.3);
+      color: $primaryColor;
+
+      h1{
+        letter-spacing: 2px;
+      }
+
+      .pollen-count{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        p{
+          margin: 0;
+        }
+
+        .num{
+          font-size: 3.5em;
+          margin-top: 0;
+        }
+      }
+      
+    }
+    
+    .tree{
+      // border: 1px solid green;
+      box-shadow: 0 0 5px 1px $primaryColor;
+
+      
+
+      .box{
+        color: green;
+        text-shadow: 0 0 4px green;
+        // display: none;
+      }
+    }
+
+    .weed{
+      // border: 1px solid yellow;
+      box-shadow: 0 0 5px 1px $primaryColor;
+
+      .box{
+        color: yellow;
+        width: 100%;
+        text-shadow: 0 0 4px #00FF9C;
+      }
+    }
+
+    .grass{
+      // border: 1px solid darkorange;
+      box-shadow: 0 0 5px 1px $primaryColor;
+
+      .box{
+        color: darkorange;
+        width: 100%;
+        text-shadow: 0 0 4px #00FF9C;
+      }
+    }
+
+
+      .color-box{
+        height: 50px;
+        width: 200px;
+        position: relative;
+        
+  
+          .color{
+            position: absolute;
+            top: 2px;
+            left: 0;
+            height: 90%;
+            width: 100%;
+            background: #00ff00;
+            background: linear-gradient(90deg,#00ff00 0%, #ff0000 90%);
+            background: -webkit-linear-gradient(90deg,#00ff00 0%, #ff0000 90%);
+            background: -moz-linear-gradient(90deg,#00ff00 0%, #ff0000 90%);
+            border-radius: 10px;
+          }
+  
+          .indicator{
+            position: absolute;
+            top: 0;
+            // left: 25%;
+            height: 100%;
+            width: 2px;
+            background-color: #fff;
+            
+          }
+
+          .tree-indicator{
+            top: 0;
+            animation-duration: 3s;
+            animation-name: tree-slider;
+            animation-fill-mode: forwards;
+          }
+
+          @keyframes tree-slider{
+           0%{
+            left: 2%;
+           }
+           100%{
+            left: 20%;
+           }
+          }
+
+          .weed-indicator{
+            top: 0;
+            // left: 30%;
+            animation-duration: 3s;
+            animation-name: weed-slider;
+            animation-fill-mode: forwards;
+          }
+
+          @keyframes weed-slider{
+            0%{
+             left: 2%;
+            }
+            100%{
+             left: 40%;
+            }
+           }
+
+          .grass-indicator{
+            top: 0;
+            // left: 70%;
+            animation-duration: 3s;
+            animation-name: grass-slider;
+            animation-fill-mode: forwards;
+          }
+
+          @keyframes grass-slider{
+            0%{
+             left: 2%;
+            }
+            100%{
+             left: 70%;
+            }
+           }
+      }
+      
+
+    
+
+  }
+
+  
+
+
+
+
+
+footer{
+  margin-top: 2em;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 1);
+  display: flex;
+  align-items: flex-end;
+  padding-left: 2em;
+  display: flex;
+  justify-content: space-between;
+
+  a{
+    padding-bottom: 3.5rem;
+    color: $primaryColor;
+  }
+
+  p{
+    color: $primaryColor;
+    padding-bottom: 0;
+    margin-bottom: 3.5rem;
+  }
+
+  div{
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    padding-right: 3rem;
+   p{
+    padding-right: .5rem;
+    margin-bottom: 1rem;
+   }
+
+   
+
+  }
+}
+
+
+
+
+@media (max-width: 800px){
+ 
+
+  .search-bar{
+    padding: 0;
+  }
+  
+  .display-wrap{
+    flex-direction: column;
+    margin-left: 2rem;
+    margin-right: 3rem;
+
+    .pollen-display{
+      width: 94% !important;
+    }
+  }
+
+ 
+  
+}
+
+
+  
+
+
+@media (max-width: 500px){
+  nav{
+    flex-direction: column;
+
+    h1{
+      margin: .5em 0 0 0;
+    }
+
+  }
+}

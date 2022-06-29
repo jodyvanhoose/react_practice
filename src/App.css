@@ -1,0 +1,319 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: linear-gradient(#fff, #dfe9f3);
+  background-image: url(../public/img/green_field.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+
+.container1 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+header {
+  margin-top: 2rem;
+  align-items: center;
+}
+header h1 {
+  border-bottom: 1px solid #6c98c5;
+  letter-spacing: 2px;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav ul li {
+  list-style: none;
+  padding: 1.5em 0.5em 1em;
+}
+
+main {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 600px;
+  padding: 1em;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+main .search-bar {
+  padding-top: 2em;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+main .search-bar input {
+  margin-bottom: 0;
+  width: 50%;
+  border-radius: 25px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  outline: none;
+  color: #6c98c5;
+}
+main .search-bar input::-moz-placeholder {
+  color: inherit;
+}
+main .search-bar input:-ms-input-placeholder {
+  color: inherit;
+}
+main .search-bar input::placeholder {
+  color: inherit;
+}
+main .search-bar button {
+  border-radius: 2px 25px 25px 2px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: #6c98c5;
+}
+main .search-bar #clear-btn {
+  display: none;
+  padding: 0.6em;
+  font-weight: 200;
+  color: #6c98c5;
+}
+main .search-bar #search-btn {
+  display: none;
+}
+main .location-text {
+  font-size: 2em;
+  color: #6c98c5;
+}
+
+.display-wrap {
+  display: flex;
+  justify-content: space-evenly;
+}
+.display-wrap .pollen-display {
+  border-radius: 25px;
+  width: 100%;
+  min-height: 450px;
+  margin: 0 1em 1em 1em;
+  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #6c98c5;
+}
+.display-wrap .pollen-display h1 {
+  letter-spacing: 2px;
+}
+.display-wrap .pollen-display .pollen-count {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.display-wrap .pollen-display .pollen-count p {
+  margin: 0;
+}
+.display-wrap .pollen-display .pollen-count .num {
+  font-size: 3.5em;
+  margin-top: 0;
+}
+.display-wrap .tree {
+  box-shadow: 0 0 5px 1px #6c98c5;
+}
+.display-wrap .tree .box {
+  color: green;
+  text-shadow: 0 0 4px green;
+}
+.display-wrap .weed {
+  box-shadow: 0 0 5px 1px #6c98c5;
+}
+.display-wrap .weed .box {
+  color: yellow;
+  width: 100%;
+  text-shadow: 0 0 4px #00FF9C;
+}
+.display-wrap .grass {
+  box-shadow: 0 0 5px 1px #6c98c5;
+}
+.display-wrap .grass .box {
+  color: darkorange;
+  width: 100%;
+  text-shadow: 0 0 4px #00FF9C;
+}
+.display-wrap .color-box {
+  height: 50px;
+  width: 200px;
+  position: relative;
+}
+.display-wrap .color-box .color {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 90%;
+  width: 100%;
+  background: #00ff00;
+  background: linear-gradient(90deg, #00ff00 0%, #ff0000 90%);
+  background: -moz-linear-gradient(90deg, #00ff00 0%, #ff0000 90%);
+  border-radius: 10px;
+}
+.display-wrap .color-box .indicator {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: #fff;
+}
+.display-wrap .color-box .tree-indicator {
+  top: 0;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-name: tree-slider;
+          animation-name: tree-slider;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+@-webkit-keyframes tree-slider {
+  0% {
+    left: 2%;
+  }
+  100% {
+    left: 20%;
+  }
+}
+@keyframes tree-slider {
+  0% {
+    left: 2%;
+  }
+  100% {
+    left: 20%;
+  }
+}
+.display-wrap .color-box .weed-indicator {
+  top: 0;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-name: weed-slider;
+          animation-name: weed-slider;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+@-webkit-keyframes weed-slider {
+  0% {
+    left: 2%;
+  }
+  100% {
+    left: 40%;
+  }
+}
+@keyframes weed-slider {
+  0% {
+    left: 2%;
+  }
+  100% {
+    left: 40%;
+  }
+}
+.display-wrap .color-box .grass-indicator {
+  top: 0;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-name: grass-slider;
+          animation-name: grass-slider;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+@-webkit-keyframes grass-slider {
+  0% {
+    left: 2%;
+  }
+  100% {
+    left: 70%;
+  }
+}
+@keyframes grass-slider {
+  0% {
+    left: 2%;
+  }
+  100% {
+    left: 70%;
+  }
+}
+
+footer {
+  margin-top: 2em;
+  height: 100px;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  align-items: flex-end;
+  padding-left: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+footer a {
+  padding-bottom: 3.5rem;
+  color: #6c98c5;
+}
+footer p {
+  color: #6c98c5;
+  padding-bottom: 0;
+  margin-bottom: 3.5rem;
+}
+footer div {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  padding-right: 3rem;
+}
+footer div p {
+  padding-right: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 800px) {
+  .search-bar {
+    padding: 0;
+  }
+
+  .display-wrap {
+    flex-direction: column;
+    margin-left: 2rem;
+    margin-right: 3rem;
+  }
+  .display-wrap .pollen-display {
+    width: 94% !important;
+  }
+}
+@media (max-width: 500px) {
+  nav {
+    flex-direction: column;
+  }
+  nav h1 {
+    margin: 0.5em 0 0 0;
+  }
+}/*# sourceMappingURL=App.css.map */
